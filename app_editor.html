@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)https://writer.burro-powan.ts.net/documents/2bf9da29-5897-4792-b67c-17a2a3247270 -->
+<html lang="en" data-darkreader-proxy-injected="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <title>Beyond Chat: Understanding JEV "System One" Models and Their Open-Source Alternatives · AI Editor</title>
+    <link rel="stylesheet" href="./app_editor_files/app.css">
+  <style data-tiptap-style="">.ProseMirror {
+  position: relative;
+}
+
+.ProseMirror {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  white-space: break-spaces;
+  -webkit-font-variant-ligatures: none;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0; /* the above doesn't seem to work in Edge */
+}
+
+.ProseMirror [contenteditable="false"] {
+  white-space: normal;
+}
+
+.ProseMirror [contenteditable="false"] [contenteditable="true"] {
+  white-space: pre-wrap;
+}
+
+.ProseMirror pre {
+  white-space: pre-wrap;
+}
+
+img.ProseMirror-separator {
+  display: inline !important;
+  border: none !important;
+  margin: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.ProseMirror-gapcursor {
+  display: none;
+  pointer-events: none;
+  position: absolute;
+  margin: 0;
+}
+
+.ProseMirror-gapcursor:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -2px;
+  width: 20px;
+  border-top: 1px solid black;
+  animation: ProseMirror-cursor-blink 1.1s steps(2, start) infinite;
+}
+
+@keyframes ProseMirror-cursor-blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.ProseMirror-hideselection *::selection {
+  background: transparent;
+}
+
+.ProseMirror-hideselection *::-moz-selection {
+  background: transparent;
+}
+
+.ProseMirror-hideselection * {
+  caret-color: transparent;
+}
+
+.ProseMirror-focused .ProseMirror-gapcursor {
+  display: block;
+}</style><style>.htmx-indicator{opacity:0;visibility: hidden} .htmx-request .htmx-indicator, .htmx-request.htmx-indicator{opacity:1;visibility: visible;transition: opacity 200ms ease-in}</style></head>
+  <body class="min-h-screen bg-page font-ui text-ink antialiased">
+    
+<aside class="fixed inset-y-0 left-0 z-40 flex w-64 select-none flex-col overflow-hidden border-r border-line bg-panel">
+  
+  <div class="px-3 pb-1 pt-3">
+    <a href="https://writer.burro-powan.ts.net/" class="group flex items-center justify-between rounded-lg px-3 py-2 transition-colors hover:bg-hover">
+      <span class="flex min-w-0 items-center gap-2.5">
+        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary text-on-primary">
+          <span class="material-symbols-outlined text-lg">auto_stories</span>
+        </span>
+        <span class="flex min-w-0 flex-col">
+          <span class="truncate font-prose text-base font-medium leading-tight text-bright">Folio Studio</span>
+          <span class="truncate text-[11px] leading-tight text-muted">Local writing workshop</span>
+        </span>
+      </span>
+      <span class="material-symbols-outlined text-base text-faint transition-colors group-hover:text-muted">unfold_more</span>
+    </a>
+  </div>
+
+  
+  <div class="px-3 pb-2 pt-1">
+    <label class="flex cursor-text items-center gap-2 rounded-lg border border-line/60 bg-well px-3 py-1.5 text-muted transition-colors hover:text-ink focus-within:border-accent/60 focus-within:text-ink">
+      <span class="material-symbols-outlined text-base">search</span>
+      <input id="doc-search" type="text" placeholder="Quick search…" class="min-w-0 flex-1 bg-transparent text-xs text-ink placeholder:text-faint focus:outline-none">
+      <span class="rounded bg-active px-1.5 py-0.5 font-mono text-[10px] font-medium text-muted">⌘K</span>
+    </label>
+  </div>
+
+  
+  <div class="px-3 pb-3">
+    <form method="post" action="https://writer.burro-powan.ts.net/documents">
+      <input type="text" name="title" required="" maxlength="200" placeholder="New document title…" class="h-9 w-full rounded-lg border border-primary bg-primary px-3 text-xs font-medium text-on-primary placeholder:text-on-primary/60 focus:outline-none focus:ring-1 focus:ring-accent">
+    </form>
+  </div>
+
+  
+  <nav class="flex-1 overflow-y-auto px-3 pb-4">
+    <div class="flex items-center justify-between px-3 py-1.5">
+      <span class="text-[11px] font-semibold uppercase tracking-wider text-muted">Documents</span>
+      <span class="text-xs font-medium text-faint">5</span>
+    </div>
+    <div id="doc-list" class="mt-1 space-y-0.5">
+      
+      <a href="https://writer.burro-powan.ts.net/documents/2bf9da29-5897-4792-b67c-17a2a3247270" data-title="Beyond Chat: Understanding JEV &quot;System One&quot; Models and Their Open-Source Alternatives" class="doc-filter-row group flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs transition-colors bg-active font-medium text-ink">
+        <span class="material-symbols-outlined text-sm text-accent">description</span>
+        <span class="min-w-0 flex-1 truncate">Beyond Chat: Understanding JEV "System One" Models and Their Open-Source Alternatives</span>
+        
+        
+        <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-accent"></span>
+        
+      </a>
+      
+      <a href="https://writer.burro-powan.ts.net/documents/c656e69a-06a8-45d2-a833-303d5b668616" data-title="Preparing your website or app for Black&nbsp;Friday" class="doc-filter-row group flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs transition-colors text-muted hover:bg-hover hover:text-ink">
+        <span class="material-symbols-outlined text-sm text-faint group-hover:text-muted">description</span>
+        <span class="min-w-0 flex-1 truncate">Preparing your website or app for Black&nbsp;Friday</span>
+        
+        <span class="text-[11px] font-medium text-faint">3</span>
+        
+        
+      </a>
+      
+      <a href="https://writer.burro-powan.ts.net/documents/ddf5c2e3-0e34-4d1f-b334-9a085a2d91da" data-title="Chasing Ghosts in the Machine: Debugging a File Descriptor Leak in Python’s exchangelib" class="doc-filter-row group flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs transition-colors text-muted hover:bg-hover hover:text-ink">
+        <span class="material-symbols-outlined text-sm text-faint group-hover:text-muted">description</span>
+        <span class="min-w-0 flex-1 truncate">Chasing Ghosts in the Machine: Debugging a File Descriptor Leak in Python’s exchangelib</span>
+        
+        <span class="text-[11px] font-medium text-faint">2</span>
+        
+        
+      </a>
+      
+      <a href="https://writer.burro-powan.ts.net/documents/76bc5e8b-1538-4b2d-88b9-bdb296cc49e7" data-title="Extending Zed: A Deep Dive into Building the pylyzer-zed Language Server Extension" class="doc-filter-row group flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs transition-colors text-muted hover:bg-hover hover:text-ink">
+        <span class="material-symbols-outlined text-sm text-faint group-hover:text-muted">description</span>
+        <span class="min-w-0 flex-1 truncate">Extending Zed: A Deep Dive into Building the pylyzer-zed Language Server Extension</span>
+        
+        
+      </a>
+      
+      <a href="https://writer.burro-powan.ts.net/documents/be77ddf0-6e7c-4039-9af1-504c463198b2" data-title="Turbocharging Your Python&nbsp;Workflow" class="doc-filter-row group flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs transition-colors text-muted hover:bg-hover hover:text-ink">
+        <span class="material-symbols-outlined text-sm text-faint group-hover:text-muted">description</span>
+        <span class="min-w-0 flex-1 truncate">Turbocharging Your Python&nbsp;Workflow</span>
+        
+        <span class="text-[11px] font-medium text-faint">3</span>
+        
+        
+      </a>
+      
+    </div>
+  </nav>
+
+  
+  <div class="border-t border-line p-3">
+    <div class="elev rounded-lg border border-line bg-card p-3">
+      <div class="mb-2 flex items-center justify-between">
+        <span class="text-xs font-medium text-ink">Library</span>
+        <span class="material-symbols-outlined text-sm text-faint">menu_book</span>
+      </div>
+      <div class="flex items-center justify-between text-[11px] text-muted">
+        <span>Documents</span>
+        <span class="font-mono font-semibold text-ink">5</span>
+      </div>
+      <div class="mt-1 flex items-center justify-between text-[11px] text-muted">
+        <span>Total words</span>
+        <span class="font-mono font-semibold text-ink">6411</span>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<div class="pl-64">
+  <header class="fixed left-64 right-0 top-0 z-30 h-14 border-b border-line bg-page/95 shadow-sm backdrop-blur-md">
+    <div class="flex h-14 w-full items-center justify-between gap-4 px-6">
+      <nav class="flex min-w-0 items-center gap-2 text-sm">
+        <a href="https://writer.burro-powan.ts.net/" class="shrink-0 text-muted transition-colors hover:text-ink">Documents</a>
+        <span class="shrink-0 text-faint">/</span>
+        <span id="crumb-title" class="truncate font-medium text-ink">Beyond Chat: Understanding JEV "System One" Models and Their Open-Source Alternatives</span>
+      </nav>
+      <div class="flex shrink-0 items-center gap-3">
+        <div class="flex items-center gap-1.5 rounded-md border border-line bg-panel px-2.5 py-1 text-xs text-muted">
+          <span class="material-symbols-outlined text-sm text-faint">edit_document</span>
+          <span id="word-count" class="font-mono font-semibold text-ink">1,239</span>
+          <span>words</span>
+        </div>
+        <button id="save-revision" class="btn" hx-post="/documents/2bf9da29-5897-4792-b67c-17a2a3247270/revisions" hx-vals="{&quot;is_major&quot;: &quot;false&quot;}" hx-target="#revision-list" title="Snapshot the working copy">
+          <span class="material-symbols-outlined">save</span>
+          Save revision
+        </button>
+        <button id="save-major" class="btn btn-primary" hx-post="/documents/2bf9da29-5897-4792-b67c-17a2a3247270/revisions" hx-vals="{&quot;is_major&quot;: &quot;true&quot;}" hx-target="#revision-list" title="Snapshot and flag as a milestone">
+          <span class="material-symbols-outlined">flag</span>
+          Save major
+        </button>
+        <button id="delete-doc" class="btn btn-danger" hx-delete="/documents/2bf9da29-5897-4792-b67c-17a2a3247270" hx-swap="none" hx-confirm="Delete this document and all its notes? This cannot be undone.">
+          <span class="material-symbols-outlined">delete</span>
+          Delete
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto flex w-full max-w-[1440px] flex-col items-start gap-8 px-6 pt-20 lg:px-12 xl:flex-row">
+    
+    <section class="w-full min-w-0 max-w-[800px] xl:mx-0">
+      <article class="elev relative w-full rounded-xl border border-line bg-card p-8 sm:p-12">
+        <div class="mb-8 rounded-xl border border-line/80 bg-well p-5">
+          <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <div>
+              <span class="block text-[11px] font-semibold uppercase tracking-wider text-muted">Words</span>
+              <span class="mt-1 block font-mono text-sm font-semibold text-ink">1239</span>
+            </div>
+            <div>
+              <span class="block text-[11px] font-semibold uppercase tracking-wider text-muted">Reading time</span>
+              <span class="mt-1 block font-mono text-sm font-semibold text-ink">≈ 6 min</span>
+            </div>
+            <div>
+              <span class="block text-[11px] font-semibold uppercase tracking-wider text-muted">Notes</span>
+              <span class="mt-1 block font-mono text-sm font-semibold text-ink">0</span>
+            </div>
+            <div>
+              <span class="block text-[11px] font-semibold uppercase tracking-wider text-muted">Last edited</span>
+              <span class="mt-1 block truncate font-mono text-xs font-semibold text-ink">Sep 30, 2026 · 15:03</span>
+            </div>
+          </div>
+        </div>
+
+        <header class="mb-8">
+          <input id="doc-title" name="title" type="text" value="Beyond Chat: Understanding JEV &quot;System One&quot; Models and Their Open-Source Alternatives" maxlength="200" aria-label="Document title" class="w-full rounded bg-transparent font-prose text-title-lg font-normal tracking-tight text-bright focus:outline-none focus:ring-1 focus:ring-accent/40" hx-post="/documents/2bf9da29-5897-4792-b67c-17a2a3247270" hx-trigger="change delay:800ms" hx-swap="none" hx-on::after-request="if (event.detail.requestError) this.value = this.defaultValue">
+        </header>
+
+        <div id="toolbar-slot"><div class="editor-toolbar" id="editor-toolbar"><button class="tb-btn" type="button" title="Bold"><span class="material-symbols-outlined">format_bold</span></button><button class="tb-btn" type="button" title="Italic"><span class="material-symbols-outlined">format_italic</span></button><button class="tb-btn" type="button" title="Strikethrough"><span class="material-symbols-outlined">format_strikethrough</span></button><span class="tb-sep"></span><button class="tb-btn" type="button" title="Heading 1"><span class="material-symbols-outlined">format_h1</span></button><button class="tb-btn" type="button" title="Heading 2"><span class="material-symbols-outlined">format_h2</span></button><button class="tb-btn" type="button" title="Heading 3"><span class="material-symbols-outlined">format_h3</span></button><span class="tb-sep"></span><button class="tb-btn" type="button" title="Bulleted list"><span class="material-symbols-outlined">format_list_bulleted</span></button><button class="tb-btn" type="button" title="Numbered list"><span class="material-symbols-outlined">format_list_numbered</span></button><button class="tb-btn" type="button" title="Quote"><span class="material-symbols-outlined">format_quote</span></button><button class="tb-btn" type="button" title="Code block"><span class="material-symbols-outlined">code</span></button><button class="tb-btn" type="button" title="Scene break"><span class="material-symbols-outlined">horizontal_rule</span></button><span class="tb-sep"></span><button type="button" class="hl-dot hl-dot-amber" title="Highlight as amber" data-color="amber" disabled="" style="opacity: 0.35;"></button><button type="button" class="hl-dot hl-dot-sky" title="Highlight as sky" data-color="sky" disabled="" style="opacity: 0.35;"></button><button type="button" class="hl-dot hl-dot-rose" title="Highlight as rose" data-color="rose" disabled="" style="opacity: 0.35;"></button><button type="button" class="hl-dot hl-dot-emerald" title="Highlight as emerald" data-color="emerald" disabled="" style="opacity: 0.35;"></button></div></div>
+        <div id="editor" class="editor-surface" data-doc-id="2bf9da29-5897-4792-b67c-17a2a3247270" data-placeholder="Start writing…"><div contenteditable="true" role="textbox" data-placeholder="Start writing…" translate="no" class="tiptap ProseMirror" tabindex="0"><p id="c502b643-d254-402c-8965-44507cd25579">For the past few years, the AI narrative has been dominated by one paradigm: chat. We’ve built superhuman conversational agents, coding copilots, and reasoning engines. Yet, a lingering question remains for software engineers: <em>If these models are so smart, why is end-to-end automation still so brittle, slow, and expensive?</em></p><p id="02db1173-d62e-4a63-a49c-142f773dd1f9">The answer lies in a fundamental mismatch. Software doesn’t need a chatty scribe; it needs reliable, lightning-fast, structured decision-making.</p><p id="dac99935-11d4-4d51-82cc-659507f4f48d">Enter System One Models, a new class of AI architecture pioneered by TypeSafe AI with their closed-source model, JEV. In this post, we’ll break down exactly how JEV-style models work, why they are fundamentally different from regular chat LLMs, and explore the exciting open-source alternatives that are bringing this capability to your local machine.</p><h3 level="3" id="dcde8a09-b2d9-40a7-9c76-4774b34f5e56">How JEV-Style Models Work (In Plain&nbsp;English)</h3><p id="45e10dee-8c0c-4634-8716-e60daab0245c">To understand System One models, let’s use an analogy.</p><p id="6ac78726-359e-4313-91de-1e71a878ea75">Imagine you ask a regular LLM: <em>“Is this customer support ticket about billing?”</em> The LLM acts like a meticulous scribe. It reads your prompt, thinks about it, and then writes out the answer character by character (autoregressive generation). Even if you ask for JSON, it still generates the curly braces, quotes, and letters one token at a time. This process is inherently sequential, relatively slow, and prone to “typos” (hallucinations or malformed JSON) that require costly post-generation parsing and validation.</p><p id="bfb79b33-5a29-4d41-ba75-caa09bf93234">A JEV-style (System One) model works completely differently. It acts like a specialized, parallel grading machine.</p><ol id="bf19cb82-3484-442c-927b-8ff5ac827e85"><li id="ad143f35-376e-4b60-8f0e-58fd69a45208"><p id="4c5ab1b2-28ba-4bb6-b034-80fb3980c071">You provide it with an unstructured or structured state (e.g., the ticket text).</p></li><li id="68d68939-2ec9-4d1e-9441-b28938c7bbda"><p id="f539160c-459a-4b44-9b80-3c578f92b22b">You provide it with a strict, predefined schema of typed questions and allowed options (e.g., <code>{"is_billing": {"type": "boolean"}}</code>).</p></li><li id="0943690e-40c4-4cc2-9669-1e14ae42078f"><p id="c18f9cc4-8f35-4edd-aa88-8dc0fd108710">Instead of “writing” an answer, the model performs a single, parallel forward pass. It directly computes the mathematical probability (logits) of every allowed answer token simultaneously.</p></li><li id="bd15e533-56c8-4a8f-824f-2fca4607af52"><p id="63713e27-267b-49bf-a22f-c464b91792ab">It returns a clean, type-safe data structure with calibrated probabilities (e.g., <code>{"is_billing": {"probability": 0.94}}</code>).</p></li></ol><p id="a86a8bd9-213a-4827-8e34-f9633f4a6c41">There is no decoding loop. There is no text generation. There are no type errors, because the output space is mathematically constrained to the schema you provided. It’s essentially a frontier-intelligence, fuzzy <code>if</code>-statement.</p><h3 level="3" id="53a79647-755c-4c96-b3ae-5f03cc322cc7">JEV vs. Regular Chat LLMs: A Technical Comparison</h3><p id="a4fd4efc-b1fc-4b77-b6d6-01601743bcfb">TypeSafe AI’s JEV (named after economist William Stanley Jevons, highlighting how dropping the cost of intelligence unlocks exponential new use cases) is the flagship of this new class. Here is how it contrasts with a traditional System Two (chat/reasoning) LLM:</p><pre id="f6321de2-2def-4a2a-9a7e-27b8dca0ac2b"><code>| Feature | Regular Chat LLM (System Two) | JEV / System One Model |
+| :--- | :--- | :--- |
+| **Primary Optimization** | Human preference (RLHF) for helpful, verbose text. | Calibrated decisions (RLCD) for epistemically honest probabilities. |
+| **Output Mechanism** | Sequential, autoregressive token generation. | Parallel, single-pass logit scoring over a predefined schema. |
+| **Output Format** | Unstructured strings (requires parsing/validation). | Strictly typed, structured values (booleans, enums, scores). |
+| **Hallucination Risk** | Moderate to High (can invent facts or malformed JSON). | **Zero** for schema violations; calibrated confidence for factual uncertainty. |
+| **Latency** | Seconds (3s to 300s+ for complex reasoning). | Milliseconds (70ms – 500ms end-to-end). |
+| **Cost Profile** | Expensive output tokens (often 5x input cost). | Input tokens are cheap; output "tokens" are effectively free. |
+| **Best Use Case** | Brainstorming, open-ended generation, human-in-the-loop chat. | Routing, classification, scoring, guardrailing, and real-time software automation. |</code></pre><p id="9695c4fa-1df3-4505-9cb7-c7471094086c"><em>Note: JEV is currently available only via early access through TypeSafe AI and is not open-source.</em></p><h3 level="3" id="17015f6a-4778-4b67-8f6f-05de75d66603">The Open-Source Rebellion: 3 Alternatives to&nbsp;JEV</h3><p id="7486c43f-9b06-45df-beb0-41e69d872776">The software engineering community thrives on openness, self-hosting, and transparency. Fortunately, developers have already begun reverse-engineering the <em>interface pattern</em> and training methodologies of System One models using open-weight foundations.</p><p id="7936f71d-d980-4478-a676-7b9d03044b06">Here are three notable open-source projects leading the charge:</p><h3 level="3" id="a993f804-ed66-49fa-9a73-702583a3d397">1. Bespoke-Nimble-9B</h3><p id="5e398650-84ea-4be0-8a0b-5ef599900443">Repository: <code>bespokelabs/Bespoke-Nimble-9B</code></p><p id="4589dff7-b464-45f6-8e32-de295eecab0d">Bespoke Labs took a highly pragmatic approach. Instead of training a model from scratch, they released a lightweight LoRA adapter built on top of the open-weight <code>Qwen3.5-9B</code> base model.</p><ul id="df3df052-80c6-4074-9340-01f3c3e205d0"><li id="e9beaf09-fa33-45b4-aa79-8fefec4187bd"><p id="fece8259-5b5c-4e61-bbd6-acaae185e0f5">How it works: It is specifically fine-tuned to score allowed answer tokens directly for context-grounded choices, booleans, and rubric score levels.</p></li><li id="0561ca2d-b5fb-479d-8e9a-221dd9afda60"><p id="2bced18e-432f-46c1-81b2-bae4b1acca31">Why it matters: It completely bypasses free-form reasoning or text generation. By constraining the model to evaluate a predefined schema, it achieves JEV-like behavior with a fraction of the compute required for full model training. It’s an excellent, drop-in starting point for teams wanting to experiment with structured scoring without leaving the Hugging Face ecosystem.</p></li></ul><h3 level="3" id="965ee5f2-dbcd-4ffd-af03-d430b9366f85">2. Mapika /&nbsp;<code>decider</code></h3><p id="b00bee53-f750-4a83-978a-2b28dccc076b">Repository: <code>Mapika/decider</code></p><p id="d3740822-ed54-45b5-91f2-866631232599"><code>decider</code> is the most comprehensive open reproduction of the System One model class to date. It offers a family of models (including a 2B and a 35B Mixture-of-Experts variant) fine-tuned from Qwen3.5 base models.</p><ul id="4d8f3477-cb23-4f72-b7ea-251d205c474d"><li id="953544e4-372b-4bf2-afd2-f1e58b3f90be"><p id="ee136c4d-10db-4dd0-9f7a-c2a4bf0112ce">How it works: It introduces a brilliant optimization called schema caching. The model pre-computes the attention key/value states of the question and option blocks. When a request comes in, it only processes the new “state” (context) and forks the cached state, executing the whole decision via optimized CUDA graphs in a single pass.</p></li><li id="166e0ad7-c8a5-4a71-9db9-56e3b7395a77"><p id="d848bd8d-25fa-4915-b5f0-fd03c118193d">Why it matters: It natively supports <code>Choice</code>, <code>Score</code>, and <code>Noul</code> (probability of yes) types. It also enforces <em>independent scoring</em>, meaning adding or reordering questions doesn’t alter the probability of other answers—a critical feature for reliable software composition. It even includes a calibration-aware Reinforcement Learning (RL) stage to ensure the output probabilities are mathematically honest.</p></li></ul><h3 level="3" id="54dc1bf3-43b7-4dea-a015-9c79bd994f18">3. TheoLeeCJ / <code>SemIf</code> (formerly OpenJev)</h3><p id="714b0054-a504-4ab0-99e6-7803f183dc24">Repository: <code>TheoLeeCJ/SemIf</code></p><p id="8b9122b2-8d65-46a8-8211-bcf08df4dae7"><code>SemIf</code> (Semantic Ifs) is an independent research project with a clear mission: <em>"Semantic ifs from open models, on a 3090 at home."</em></p><ul id="823f0810-497c-41dd-a873-164a81506790"><li id="1f7d8a48-ba7d-4642-81e8-2833be555ff5"><p id="fb4d4d11-8a09-4238-b614-41f09b3d14ce">How it works: It extracts typed option probabilities directly from open models (like Qwen3.5–4B or MiniCPM5–2B) via direct logit reading. It features a “shared-state” mode, where a long context (like a massive document) is prefetched into the GPU once, and then branched across dozens of decision criteria in parallel.</p></li><li id="1f0aa0b9-6a61-4daa-9899-05fd5f73bec1"><p id="93c2b0d3-f60b-4910-a44d-59db19f767fd">Why it matters: It proves that you don’t need a closed, proprietary API to get JEV-like performance. In their benchmarks, a 4B model using direct logit extraction achieved an 0.845 modal agreement on a TypeSafe subset, closely trailing the closed JEV service (0.883), while being 5.2x faster than asking the same model to autoregressively generate a JSON array of answers. It even includes a WebGPU browser demo, proving this can run client-side.</p></li></ul><h3 level="3" id="70d7e460-c127-4bf3-afd6-8d448c94cae2">When Should You Use&nbsp;Which?</h3><p id="1cca23b5-1659-4a30-ad35-51422f8e7d60">As a software engineer, your architecture should reflect the right tool for the job:</p><ul id="47ad2c9b-4ccf-47de-ad8d-5a4fe519c303"><li id="5cedce52-085e-40b0-af90-db79dd101796"><p id="7a1b8c05-b898-4118-b55c-16c4f53fd409">Reach for a Regular Chat LLM (e.g., GPT-4, Claude 3.5 Sonnet, Qwen3.5–72B) when the task is open-ended: drafting emails, generating boilerplate code from scratch, brainstorming, or any scenario where human review is the final gate.</p></li><li id="476a319b-1a5b-49a3-ace4-41231d7263ba"><p id="4659f31d-8d8e-45dc-9c03-a1e6020e8531">Reach for a System One / JEV-style Model when the task is a deterministic workflow: routing a support ticket to a department, scoring the toxicity of a prompt, extracting a specific enum from a document, or making real-time decisions in a game loop or high-frequency trading bot.</p></li></ul><h3 level="3" id="605b2378-f956-4f24-b470-90f061036911">The Future is Structured</h3><p id="894cb90c-97e6-48f4-b614-3e7af0de74c1">The “chat” interface was a necessary bridge to make AI accessible to humans. But the next frontier of AI engineering isn’t about making models better at talking; it’s about making them better at <em>deciding</em>.</p><p id="44e1587f-b38e-41ab-8d88-e9036bcb4a76">By giving up the flexibility of free-form string generation, System One models like JEV, <code>decider</code>, <code>SemIf</code>, and <code>Bespoke-Nimble</code> gain superpowers: mathematical guarantees against type errors, massive latency reductions, and radically lower costs.</p><p id="a9081f25-ec60-4121-b62f-26b403baff4d">The closed-source offerings are proving the concept, but as projects like <code>decider</code> and <code>SemIf</code> demonstrate, the open-source community is already building the robust, self-hostable infrastructure that will power the next generation of automated software.</p><p id="73baef7c-3f26-441d-ab4f-8c7d5f3d3c38"><em>Have you experimented with direct-logit scoring or structured decision models in your stack? Share your experiences in the comments below!</em></p></div></div>
+      </article>
+    </section>
+
+    
+    <aside class="w-full flex-col gap-4 xl:sticky xl:top-20 xl:w-80 xl:shrink-0">
+      <div class="elev rounded-xl border border-line bg-card p-4">
+        <div class="mb-3 flex items-center justify-between gap-2">
+          <div class="flex min-w-0 items-center gap-1.5">
+            <span class="material-symbols-outlined text-lg text-accent">forum</span>
+            <h2 class="truncate font-prose text-base font-medium text-bright">Feedback</h2>
+            <span id="note-count" class="rounded-full border border-accent/25 bg-accent/10 px-2 py-0.5 text-[11px] font-semibold text-accent hidden"></span>
+          </div>
+          <div class="flex shrink-0 items-center gap-1">
+            <button id="nav-prev" class="nav-btn" title="Previous note (Alt+J)">
+              <span class="material-symbols-outlined">chevron_left</span>
+            </button>
+            <span id="nav-position" class="w-10 text-center text-xs tabular-nums text-muted"></span>
+            <button id="nav-next" class="nav-btn" title="Next note (Alt+K)">
+              <span class="material-symbols-outlined">chevron_right</span>
+            </button>
+          </div>
+        </div>
+        <ol id="highlight-list" class="space-y-3"></ol>
+        <p id="sidebar-empty" class="text-xs leading-relaxed text-muted">
+          Select a passage in the manuscript and pick a color above to pin a note here. Step through notes with
+          the arrow buttons, or Alt+J / Alt+K.
+        </p>
+      </div>
+
+      <section id="revisions-section" class="elev rounded-xl border border-line bg-card p-4">
+        <div class="mb-3 flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-base text-accent">history</span>
+          <h2 class="font-prose text-sm font-medium text-bright">Revisions</h2>
+        </div>
+        <ol id="revision-list">
+  
+<li class="rev-row">
+  <span class="rev-time">Sep 21, 2026 · 10:49</span>
+  
+  <span class="rev-major">Major</span>
+  
+  
+  <span class="flex-1"></span>
+  
+  <button class="rev-restore" hx-post="/revisions/ec850957-e55e-445c-9cc9-360e997d4e45/restore" hx-swap="none">
+    <span class="material-symbols-outlined">restore</span>
+    Restore
+  </button>
+</li>
+
+</ol>
+      </section>
+
+      <section id="check-card" class="elev rounded-xl border border-line bg-card p-4" hx-get="/api/documents/2bf9da29-5897-4792-b67c-17a2a3247270/check" hx-trigger="load, every 5s" hx-target="#check-body" hx-swap="innerHTML">
+        <div class="mb-3 flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-base text-accent">auto_awesome</span>
+          <h2 class="font-prose text-sm font-medium text-bright">Insights</h2>
+        </div>
+        <div id="check-body"><div class="check-result" data-ai-notes="">
+  <div class="mb-2 flex flex-wrap items-center gap-x-2 gap-y-1">
+    <span class="check-tag">Reviewed</span>
+    <span class="text-[11px] text-faint">Sep 21, 2026 · 10:51 · nvidia/nemotron-3-super-120b-a12b</span>
+  </div>
+  <p class="mb-2 text-xs leading-relaxed text-prose">The draft offers a clear, well‑structured overview of System One (JEV‑style) models, contrasting them with chat LLMs and highlighting open‑source alternatives, though some prose could be tightened and a few terms need clarification.</p>
+  <h3 class="check-h">Strengths</h3>
+  <ul class="check-list">
+    <li>Clear analogy of scribe vs grading machine</li>
+    <li>Detailed comparison table with latency and cost metrics</li>
+    <li>Concrete open‑source project descriptions with repo links</li>
+    <li>Practical guidance on when to use each model type</li>
+  </ul>
+  <h3 class="check-h">Suggestions</h3>
+  <ul class="check-list">
+    <li>Add a brief glossary for terms like Noul and RLCD</li>
+    <li>Trim verbose sentences to improve readability</li>
+    <li>Include a reference or link to the benchmark dataset</li>
+    <li>Consider adding a diagram illustrating the parallel forward pass</li>
+  </ul>
+</div>
+<button class="btn check-rerun mt-3" hx-post="/api/documents/2bf9da29-5897-4792-b67c-17a2a3247270/check" hx-target="#check-body" hx-swap="innerHTML">
+  <span class="material-symbols-outlined">refresh</span>Re-run
+</button></div>
+      </section>
+    </aside>
+  </main>
+</div>
+
+<script type="application/json" id="doc-data">{"content": {"content": [{"attrs": {"id": "c502b643-d254-402c-8965-44507cd25579"}, "content": [{"text": "For the past few years, the AI narrative has been dominated by one paradigm: chat. We\u2019ve built superhuman conversational agents, coding copilots, and reasoning engines. Yet, a lingering question remains for software engineers: ", "type": "text"}, {"marks": [{"type": "italic"}], "text": "If these models are so smart, why is end-to-end automation still so brittle, slow, and expensive?", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "02db1173-d62e-4a63-a49c-142f773dd1f9"}, "content": [{"text": "The answer lies in a fundamental mismatch. Software doesn\u2019t need a chatty scribe; it needs reliable, lightning-fast, structured decision-making.", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "dac99935-11d4-4d51-82cc-659507f4f48d"}, "content": [{"text": "Enter System One Models, a new class of AI architecture pioneered by TypeSafe AI with their closed-source model, JEV. In this post, we\u2019ll break down exactly how JEV-style models work, why they are fundamentally different from regular chat LLMs, and explore the exciting open-source alternatives that are bringing this capability to your local machine.", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "dcde8a09-b2d9-40a7-9c76-4774b34f5e56", "level": 3}, "content": [{"text": "How JEV-Style Models Work (In Plain\u00a0English)", "type": "text"}], "type": "heading"}, {"attrs": {"id": "45e10dee-8c0c-4634-8716-e60daab0245c"}, "content": [{"text": "To understand System One models, let\u2019s use an analogy.", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "6ac78726-359e-4313-91de-1e71a878ea75"}, "content": [{"text": "Imagine you ask a regular LLM: ", "type": "text"}, {"marks": [{"type": "italic"}], "text": "\u201cIs this customer support ticket about billing?\u201d", "type": "text"}, {"text": " The LLM acts like a meticulous scribe. It reads your prompt, thinks about it, and then writes out the answer character by character (autoregressive generation). Even if you ask for JSON, it still generates the curly braces, quotes, and letters one token at a time. This process is inherently sequential, relatively slow, and prone to \u201ctypos\u201d (hallucinations or malformed JSON) that require costly post-generation parsing and validation.", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "bfb79b33-5a29-4d41-ba75-caa09bf93234"}, "content": [{"text": "A JEV-style (System One) model works completely differently. It acts like a specialized, parallel grading machine.", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "bf19cb82-3484-442c-927b-8ff5ac827e85", "start": 1}, "content": [{"attrs": {"id": "ad143f35-376e-4b60-8f0e-58fd69a45208"}, "content": [{"attrs": {"id": "4c5ab1b2-28ba-4bb6-b034-80fb3980c071"}, "content": [{"text": "You provide it with an unstructured or structured state (e.g., the ticket text).", "type": "text"}], "type": "paragraph"}], "type": "listItem"}, {"attrs": {"id": "68d68939-2ec9-4d1e-9441-b28938c7bbda"}, "content": [{"attrs": {"id": "f539160c-459a-4b44-9b80-3c578f92b22b"}, "content": [{"text": "You provide it with a strict, predefined schema of typed questions and allowed options (e.g., ", "type": "text"}, {"marks": [{"type": "code"}], "text": "{\"is_billing\": {\"type\": \"boolean\"}}", "type": "text"}, {"text": ").", "type": "text"}], "type": "paragraph"}], "type": "listItem"}, {"attrs": {"id": "0943690e-40c4-4cc2-9669-1e14ae42078f"}, "content": [{"attrs": {"id": "c18f9cc4-8f35-4edd-aa88-8dc0fd108710"}, "content": [{"text": "Instead of \u201cwriting\u201d an answer, the model performs a single, parallel forward pass. It directly computes the mathematical probability (logits) of every allowed answer token simultaneously.", "type": "text"}], "type": "paragraph"}], "type": "listItem"}, {"attrs": {"id": "bd15e533-56c8-4a8f-824f-2fca4607af52"}, "content": [{"attrs": {"id": "63713e27-267b-49bf-a22f-c464b91792ab"}, "content": [{"text": "It returns a clean, type-safe data structure with calibrated probabilities (e.g., ", "type": "text"}, {"marks": [{"type": "code"}], "text": "{\"is_billing\": {\"probability\": 0.94}}", "type": "text"}, {"text": ").", "type": "text"}], "type": "paragraph"}], "type": "listItem"}], "type": "orderedList"}, {"attrs": {"id": "a86a8bd9-213a-4827-8e34-f9633f4a6c41"}, "content": [{"text": "There is no decoding loop. There is no text generation. There are no type errors, because the output space is mathematically constrained to the schema you provided. It\u2019s essentially a frontier-intelligence, fuzzy ", "type": "text"}, {"marks": [{"type": "code"}], "text": "if", "type": "text"}, {"text": "-statement.", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "53a79647-755c-4c96-b3ae-5f03cc322cc7", "level": 3}, "content": [{"text": "JEV vs. Regular Chat LLMs: A Technical Comparison", "type": "text"}], "type": "heading"}, {"attrs": {"id": "a4fd4efc-b1fc-4b77-b6d6-01601743bcfb"}, "content": [{"text": "TypeSafe AI\u2019s JEV (named after economist William Stanley Jevons, highlighting how dropping the cost of intelligence unlocks exponential new use cases) is the flagship of this new class. Here is how it contrasts with a traditional System Two (chat/reasoning) LLM:", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "f6321de2-2def-4a2a-9a7e-27b8dca0ac2b", "language": null}, "content": [{"text": "| Feature | Regular Chat LLM (System Two) | JEV / System One Model |\n| :--- | :--- | :--- |\n| **Primary Optimization** | Human preference (RLHF) for helpful, verbose text. | Calibrated decisions (RLCD) for epistemically honest probabilities. |\n| **Output Mechanism** | Sequential, autoregressive token generation. | Parallel, single-pass logit scoring over a predefined schema. |\n| **Output Format** | Unstructured strings (requires parsing/validation). | Strictly typed, structured values (booleans, enums, scores). |\n| **Hallucination Risk** | Moderate to High (can invent facts or malformed JSON). | **Zero** for schema violations; calibrated confidence for factual uncertainty. |\n| **Latency** | Seconds (3s to 300s+ for complex reasoning). | Milliseconds (70ms \u2013 500ms end-to-end). |\n| **Cost Profile** | Expensive output tokens (often 5x input cost). | Input tokens are cheap; output \"tokens\" are effectively free. |\n| **Best Use Case** | Brainstorming, open-ended generation, human-in-the-loop chat. | Routing, classification, scoring, guardrailing, and real-time software automation. |", "type": "text"}], "type": "codeBlock"}, {"attrs": {"id": "9695c4fa-1df3-4505-9cb7-c7471094086c"}, "content": [{"marks": [{"type": "italic"}], "text": "Note: JEV is currently available only via early access through TypeSafe AI and is not open-source.", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "17015f6a-4778-4b67-8f6f-05de75d66603", "level": 3}, "content": [{"text": "The Open-Source Rebellion: 3 Alternatives to\u00a0JEV", "type": "text"}], "type": "heading"}, {"attrs": {"id": "7486c43f-9b06-45df-beb0-41e69d872776"}, "content": [{"text": "The software engineering community thrives on openness, self-hosting, and transparency. Fortunately, developers have already begun reverse-engineering the ", "type": "text"}, {"marks": [{"type": "italic"}], "text": "interface pattern", "type": "text"}, {"text": " and training methodologies of System One models using open-weight foundations.", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "7936f71d-d980-4478-a676-7b9d03044b06"}, "content": [{"text": "Here are three notable open-source projects leading the charge:", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "a993f804-ed66-49fa-9a73-702583a3d397", "level": 3}, "content": [{"text": "1. Bespoke-Nimble-9B", "type": "text"}], "type": "heading"}, {"attrs": {"id": "5e398650-84ea-4be0-8a0b-5ef599900443"}, "content": [{"text": "Repository: ", "type": "text"}, {"marks": [{"type": "code"}], "text": "bespokelabs/Bespoke-Nimble-9B", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "4589dff7-b464-45f6-8e32-de295eecab0d"}, "content": [{"text": "Bespoke Labs took a highly pragmatic approach. Instead of training a model from scratch, they released a lightweight LoRA adapter built on top of the open-weight ", "type": "text"}, {"marks": [{"type": "code"}], "text": "Qwen3.5-9B", "type": "text"}, {"text": " base model.", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "df3df052-80c6-4074-9340-01f3c3e205d0"}, "content": [{"attrs": {"id": "e9beaf09-fa33-45b4-aa79-8fefec4187bd"}, "content": [{"attrs": {"id": "fece8259-5b5c-4e61-bbd6-acaae185e0f5"}, "content": [{"text": "How it works: It is specifically fine-tuned to score allowed answer tokens directly for context-grounded choices, booleans, and rubric score levels.", "type": "text"}], "type": "paragraph"}], "type": "listItem"}, {"attrs": {"id": "0561ca2d-b5fb-479d-8e9a-221dd9afda60"}, "content": [{"attrs": {"id": "2bced18e-432f-46c1-81b2-bae4b1acca31"}, "content": [{"text": "Why it matters: It completely bypasses free-form reasoning or text generation. By constraining the model to evaluate a predefined schema, it achieves JEV-like behavior with a fraction of the compute required for full model training. It\u2019s an excellent, drop-in starting point for teams wanting to experiment with structured scoring without leaving the Hugging Face ecosystem.", "type": "text"}], "type": "paragraph"}], "type": "listItem"}], "type": "bulletList"}, {"attrs": {"id": "965ee5f2-dbcd-4ffd-af03-d430b9366f85", "level": 3}, "content": [{"text": "2. Mapika /\u00a0", "type": "text"}, {"marks": [{"type": "code"}], "text": "decider", "type": "text"}], "type": "heading"}, {"attrs": {"id": "b00bee53-f750-4a83-978a-2b28dccc076b"}, "content": [{"text": "Repository: ", "type": "text"}, {"marks": [{"type": "code"}], "text": "Mapika/decider", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "d3740822-ed54-45b5-91f2-866631232599"}, "content": [{"marks": [{"type": "code"}], "text": "decider", "type": "text"}, {"text": " is the most comprehensive open reproduction of the System One model class to date. It offers a family of models (including a 2B and a 35B Mixture-of-Experts variant) fine-tuned from Qwen3.5 base models.", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "4d8f3477-cb23-4f72-b7ea-251d205c474d"}, "content": [{"attrs": {"id": "953544e4-372b-4bf2-afd2-f1e58b3f90be"}, "content": [{"attrs": {"id": "ee136c4d-10db-4dd0-9f7a-c2a4bf0112ce"}, "content": [{"text": "How it works: It introduces a brilliant optimization called schema caching. The model pre-computes the attention key/value states of the question and option blocks. When a request comes in, it only processes the new \u201cstate\u201d (context) and forks the cached state, executing the whole decision via optimized CUDA graphs in a single pass.", "type": "text"}], "type": "paragraph"}], "type": "listItem"}, {"attrs": {"id": "166e0ad7-c8a5-4a71-9db9-56e3b7395a77"}, "content": [{"attrs": {"id": "d848bd8d-25fa-4915-b5f0-fd03c118193d"}, "content": [{"text": "Why it matters: It natively supports ", "type": "text"}, {"marks": [{"type": "code"}], "text": "Choice", "type": "text"}, {"text": ", ", "type": "text"}, {"marks": [{"type": "code"}], "text": "Score", "type": "text"}, {"text": ", and ", "type": "text"}, {"marks": [{"type": "code"}], "text": "Noul", "type": "text"}, {"text": " (probability of yes) types. It also enforces ", "type": "text"}, {"marks": [{"type": "italic"}], "text": "independent scoring", "type": "text"}, {"text": ", meaning adding or reordering questions doesn\u2019t alter the probability of other answers\u2014a critical feature for reliable software composition. It even includes a calibration-aware Reinforcement Learning (RL) stage to ensure the output probabilities are mathematically honest.", "type": "text"}], "type": "paragraph"}], "type": "listItem"}], "type": "bulletList"}, {"attrs": {"id": "54dc1bf3-43b7-4dea-a015-9c79bd994f18", "level": 3}, "content": [{"text": "3. TheoLeeCJ / ", "type": "text"}, {"marks": [{"type": "code"}], "text": "SemIf", "type": "text"}, {"text": " (formerly OpenJev)", "type": "text"}], "type": "heading"}, {"attrs": {"id": "714b0054-a504-4ab0-99e6-7803f183dc24"}, "content": [{"text": "Repository: ", "type": "text"}, {"marks": [{"type": "code"}], "text": "TheoLeeCJ/SemIf", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "8b9122b2-8d65-46a8-8211-bcf08df4dae7"}, "content": [{"marks": [{"type": "code"}], "text": "SemIf", "type": "text"}, {"text": " (Semantic Ifs) is an independent research project with a clear mission: ", "type": "text"}, {"marks": [{"type": "italic"}], "text": "\"Semantic ifs from open models, on a 3090 at home.\"", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "823f0810-497c-41dd-a873-164a81506790"}, "content": [{"attrs": {"id": "1f7d8a48-ba7d-4642-81e8-2833be555ff5"}, "content": [{"attrs": {"id": "fb4d4d11-8a09-4238-b614-41f09b3d14ce"}, "content": [{"text": "How it works: It extracts typed option probabilities directly from open models (like Qwen3.5\u20134B or MiniCPM5\u20132B) via direct logit reading. It features a \u201cshared-state\u201d mode, where a long context (like a massive document) is prefetched into the GPU once, and then branched across dozens of decision criteria in parallel.", "type": "text"}], "type": "paragraph"}], "type": "listItem"}, {"attrs": {"id": "1f0aa0b9-6a61-4daa-9899-05fd5f73bec1"}, "content": [{"attrs": {"id": "93c2b0d3-f60b-4910-a44d-59db19f767fd"}, "content": [{"text": "Why it matters: It proves that you don\u2019t need a closed, proprietary API to get JEV-like performance. In their benchmarks, a 4B model using direct logit extraction achieved an 0.845 modal agreement on a TypeSafe subset, closely trailing the closed JEV service (0.883), while being 5.2x faster than asking the same model to autoregressively generate a JSON array of answers. It even includes a WebGPU browser demo, proving this can run client-side.", "type": "text"}], "type": "paragraph"}], "type": "listItem"}], "type": "bulletList"}, {"attrs": {"id": "70d7e460-c127-4bf3-afd6-8d448c94cae2", "level": 3}, "content": [{"text": "When Should You Use\u00a0Which?", "type": "text"}], "type": "heading"}, {"attrs": {"id": "1cca23b5-1659-4a30-ad35-51422f8e7d60"}, "content": [{"text": "As a software engineer, your architecture should reflect the right tool for the job:", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "47ad2c9b-4ccf-47de-ad8d-5a4fe519c303"}, "content": [{"attrs": {"id": "5cedce52-085e-40b0-af90-db79dd101796"}, "content": [{"attrs": {"id": "7a1b8c05-b898-4118-b55c-16c4f53fd409"}, "content": [{"text": "Reach for a Regular Chat LLM (e.g., GPT-4, Claude 3.5 Sonnet, Qwen3.5\u201372B) when the task is open-ended: drafting emails, generating boilerplate code from scratch, brainstorming, or any scenario where human review is the final gate.", "type": "text"}], "type": "paragraph"}], "type": "listItem"}, {"attrs": {"id": "476a319b-1a5b-49a3-ace4-41231d7263ba"}, "content": [{"attrs": {"id": "4659f31d-8d8e-45dc-9c03-a1e6020e8531"}, "content": [{"text": "Reach for a System One / JEV-style Model when the task is a deterministic workflow: routing a support ticket to a department, scoring the toxicity of a prompt, extracting a specific enum from a document, or making real-time decisions in a game loop or high-frequency trading bot.", "type": "text"}], "type": "paragraph"}], "type": "listItem"}], "type": "bulletList"}, {"attrs": {"id": "605b2378-f956-4f24-b470-90f061036911", "level": 3}, "content": [{"text": "The Future is Structured", "type": "text"}], "type": "heading"}, {"attrs": {"id": "894cb90c-97e6-48f4-b614-3e7af0de74c1"}, "content": [{"text": "The \u201cchat\u201d interface was a necessary bridge to make AI accessible to humans. But the next frontier of AI engineering isn\u2019t about making models better at talking; it\u2019s about making them better at ", "type": "text"}, {"marks": [{"type": "italic"}], "text": "deciding", "type": "text"}, {"text": ".", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "44e1587f-b38e-41ab-8d88-e9036bcb4a76"}, "content": [{"text": "By giving up the flexibility of free-form string generation, System One models like JEV, ", "type": "text"}, {"marks": [{"type": "code"}], "text": "decider", "type": "text"}, {"text": ", ", "type": "text"}, {"marks": [{"type": "code"}], "text": "SemIf", "type": "text"}, {"text": ", and ", "type": "text"}, {"marks": [{"type": "code"}], "text": "Bespoke-Nimble", "type": "text"}, {"text": " gain superpowers: mathematical guarantees against type errors, massive latency reductions, and radically lower costs.", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "a9081f25-ec60-4121-b62f-26b403baff4d"}, "content": [{"text": "The closed-source offerings are proving the concept, but as projects like ", "type": "text"}, {"marks": [{"type": "code"}], "text": "decider", "type": "text"}, {"text": " and ", "type": "text"}, {"marks": [{"type": "code"}], "text": "SemIf", "type": "text"}, {"text": " demonstrate, the open-source community is already building the robust, self-hostable infrastructure that will power the next generation of automated software.", "type": "text"}], "type": "paragraph"}, {"attrs": {"id": "73baef7c-3f26-441d-ab4f-8c7d5f3d3c38"}, "content": [{"marks": [{"type": "italic"}], "text": "Have you experimented with direct-logit scoring or structured decision models in your stack? Share your experiences in the comments below!", "type": "text"}], "type": "paragraph"}], "type": "doc"}, "highlights": [], "title": "Beyond Chat: Understanding JEV \"System One\" Models and Their Open-Source Alternatives"}</script>
+
+    <script src="./app_editor_files/bundle.js" defer=""></script>
+  
+</body></html>
